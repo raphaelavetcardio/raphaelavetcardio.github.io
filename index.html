@@ -144,7 +144,7 @@
     .sec-sub {
       font-size:15px; font-weight:300;
       color:var(--text-soft); line-height:1.8;
-      max-width:560px; margin-bottom:2.2rem;
+      max-width:100%; margin-bottom:2.2rem;
     }
     .btn-p {
       display:inline-flex; align-items:center; gap:8px;
@@ -198,7 +198,7 @@
       background-size: cover;
       background-position: center 30%;
     }
-    #hero::before {
+    /*#hero::before {
       content: '';
       position: absolute;
       inset: 0;
@@ -211,7 +211,7 @@
         rgba(247,240,253,.05) 100%
       );
       z-index: 0;
-    }
+    }*/
     .hero-inner {
       position: relative; z-index: 1;
       max-width: 660px;
@@ -243,7 +243,7 @@
     .hero-title em { font-style:normal; color:var(--pink); }
     .hero-sub {
       font-size:16px; font-weight:300;
-      color:var(--text-soft); line-height:1.75;
+      color:var(--white); line-height:1.75;
       margin-bottom:1.8rem; max-width:500px;
       text-align:left;
     }
@@ -359,13 +359,15 @@
     }
     .service-card:hover { transform:translateY(-4px); box-shadow:0 10px 30px rgba(224,90,154,.12); }
     .service-card.highlight {
-      background: linear-gradient(140deg,var(--pink-pale) 0%,var(--lilac-pale) 100%);
+      background: linear-gradient(140deg,var(--pink) 0%,var(--lilac) 100%);
       border-color:var(--pink);
       border-width:1px;
     }
+
     .service-icon { font-size:26px; }
     .service-name { font-family:'Bricolage Grotesque',sans-serif; font-size:15px; font-weight:600; color:var(--text); }
     .service-desc { font-size:14px; font-weight:300; color:var(--text-soft); line-height:1.7; }
+    .carservice {color: white}
     @media (max-width:768px) { .services-grid { grid-template-columns:1fr 1fr; } }
     @media (max-width:480px) { .services-grid { grid-template-columns:1fr; } }
 
@@ -375,7 +377,7 @@
       padding: 3rem 0;
     }
     .audience-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; }
-    .audience-card { border-radius:20px; padding:2.2rem; }
+    .audience-card { border-radius:5px; padding:2.2rem; }
     .audience-card.clinicas { background:var(--lilac-pale); border:.5px solid var(--lilac-light); }
     .audience-card.tutores  { background:var(--pink-pale);  border:.5px solid var(--pink-light);  }
     .audience-emoji { font-size:34px; margin-bottom:8px; }
@@ -657,7 +659,7 @@
     </div>
     <div class="hero-tags fade-in d4">
       <span class="tag">Doutorado Unesp</span>
-      <span class="tag">Título SBCV</span>
+      <span class="tag">Título SBCV - Sociedade Brasileira de Cardiologia Veterinária.</span>
       <span class="tag">Jaboticabal e Região</span>
       <span class="tag">Atendimento Itinerante</span>
     </div>
@@ -684,7 +686,7 @@
       <div class="quem-cards">
         <div class="cred-card fade-in">
           <div class="cred-icon">🎓</div>
-          <div class="cred-title">Mestrado e Doutorado</div>
+          <div class="cred-title">Mestrado e Doutorado em andamento</div>
           <div class="cred-desc">Me especializei em Cardiologia Veterinária com Mestrado e Doutorado pela Unesp Jaboticabal — referência nacional na área.</div>
         </div>
         <div class="cred-card fade-in d1">
@@ -694,8 +696,8 @@
         </div>
         <div class="cred-card fade-in d2">
           <div class="cred-icon">📋</div>
-          <div class="cred-title">CRMV-SP 34944</div>
-          <div class="cred-desc">Meu registro no CRMV-SP é o 34944 — atendimento regularizado, rastreável e com total segurança para clínicas e tutores.</div>
+          <div class="cred-title">Pesquisadora ativa</div>
+          <div class="cred-desc">Autora de publicações científicas em periódicos veterinários nacionais. Minha pesquisa no Laboratório de Cardiologia da Unesp Jaboticabal contribui diretamente para a evolução do diagnóstico cardíaco em cães e gatos.</div>
         </div>
         <div class="cred-card fade-in d3">
           <div class="cred-icon">🔬</div>
@@ -716,7 +718,7 @@
   <div class="container" style="padding:3rem 5%;">
     <p class="sec-label fade-in">Serviços</p>
     <h2 class="sec-title fade-in">Diagnóstico cardiovascular<br>completo para o seu pet</h2>
-    <p class="sec-sub fade-in">Equipamentos modernos e avaliação clínica especializada para cada paciente, cão ou gato.</p>
+    <p class="sec-sub fade-in">Equipamentos modernos e avaliação clínica especializada para cada paciente, cães e gatos.</p>
     <div class="services-grid">
       <div class="service-card fade-in">
         <div class="service-icon">🫀</div>
@@ -746,7 +748,7 @@
       <div class="service-card highlight fade-in d4">
         <div class="service-icon">🚗</div>
         <div class="service-name">Vamos até você</div>
-        <div class="service-desc">Atendimento itinerante em clínicas veterinárias parceiras de Jaboticabal e Região. Sem precisar ir até a capital. Entre em contato e verifique a disponibilidade.</div>
+        <div class="service-desc carservice">Atendimento itinerante em clínicas veterinárias parceiras de Jaboticabal e Região. Atendimento particular a domicílio . Entre em contato e verifique a disponibilidade.</div>
       </div>
     </div>
   </div>
@@ -762,7 +764,7 @@
       <div class="audience-card clinicas fade-in">
         <div class="audience-emoji">🏥</div>
         <div class="audience-title">Clínicas Veterinárias</div>
-        <div class="audience-desc">Especialista itinerante disponível para atender em clínicas parceiras. Reforça a oferta de serviços sem necessidade de equipamento próprio.</div>
+        <div class="audience-desc">Especialista itinerante disponível para atender em clínicas parceiras, com equipamento próprio.</div>
         <ul class="audience-list">
           <li>Encaminhamento de casos cardiológicos</li>
           <li>Laudos e relatórios técnicos detalhados</li>
@@ -773,7 +775,7 @@
       <div class="audience-card tutores fade-in d1">
         <div class="audience-emoji">🐾</div>
         <div class="audience-title">Tutores de Pets</div>
-        <div class="audience-desc">Para quem notou algo diferente no pet e quer uma avaliação cardiológica completa com quem realmente entende do assunto.</div>
+        <div class="audience-desc">Para quem notou algo diferente no pet como: tosse com frequência, cansaço fácil, apatia e respiração ofegante, fazemos consulta e avaliação completa .</div>
         <ul class="audience-list">
           <li>Avaliação completa do coração do pet</li>
           <li>Diagnóstico claro e humanizado</li>
@@ -830,41 +832,41 @@
           <!-- Slide 1 -->
           <div class="carousel-slide">
             <div class="raca-card-v2">
-              <img class="raca-photo" src="https://images.unsplash.com/photo-1574144611937-0df059b5ef3e?w=400&h=400&auto=format&fit=crop&q=80" alt="Cavalier King Charles Spaniel">
+              <img class="raca-photo" src="image/Cavalier King Charles.jpg" alt="Cavalier King Charles Spaniel">
               <div class="raca-caption"><div class="raca-nome">Cavalier King Charles</div><div class="raca-risco">Doença valvar mitral</div></div>
             </div>
             <div class="raca-card-v2">
-              <img class="raca-photo" src="https://images.unsplash.com/photo-1560743641-3914f2c45636?w=400&h=400&auto=format&fit=crop&q=80" alt="Poodle">
+              <img class="raca-photo" src="image/poodle.jpg" alt="Poodle">
               <div class="raca-caption"><div class="raca-nome">Poodle</div><div class="raca-risco">Doença valvar mitral</div></div>
             </div>
             <div class="raca-card-v2">
-              <img class="raca-photo" src="https://images.unsplash.com/photo-1612195583950-b8fd34c87093?w=400&h=400&auto=format&fit=crop&q=80" alt="Dachshund">
-              <div class="raca-caption"><div class="raca-nome">Dachshund</div><div class="raca-risco">Doença valvar mitral</div></div>
+              <img class="raca-photo" src="image/salsicha.jpg" alt="Dachshund">
+              <div class="raca-caption"><div class="raca-nome">Salsichinha</div><div class="raca-risco">Doença valvar mitral</div></div>
             </div>
           </div>
           <!-- Slide 2 -->
           <div class="carousel-slide">
             <div class="raca-card-v2">
-              <img class="raca-photo" src="https://images.unsplash.com/photo-1583511655826-05700d52f4d9?w=400&h=400&auto=format&fit=crop&q=80" alt="Cocker Spaniel">
+              <img class="raca-photo" src="image/cocker_inglês_adulto.webp" alt="Cocker Spaniel">
               <div class="raca-caption"><div class="raca-nome">Cocker Spaniel</div><div class="raca-risco">Cardiomiopatia dilatada</div></div>
             </div>
             <div class="raca-card-v2">
-              <img class="raca-photo" src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=400&h=400&auto=format&fit=crop&q=80" alt="Dobermann">
+              <img class="raca-photo" src="image/dobermann.webp" alt="Dobermann">
               <div class="raca-caption"><div class="raca-nome">Dobermann</div><div class="raca-risco">Cardiomiopatia dilatada</div></div>
             </div>
             <div class="raca-card-v2">
-              <img class="raca-photo" src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=400&h=400&auto=format&fit=crop&q=80" alt="Boxer">
+              <img class="raca-photo" src="image/Boxer-dog.webp" alt="Boxer">
               <div class="raca-caption"><div class="raca-nome">Boxer</div><div class="raca-risco">Cardiomiopatia dilatada</div></div>
             </div>
           </div>
           <!-- Slide 3 -->
           <div class="carousel-slide">
             <div class="raca-card-v2">
-              <img class="raca-photo" src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=400&h=400&auto=format&fit=crop&q=80" alt="Dogue Alemão">
+              <img class="raca-photo" src="image/dogue alemao.webp" alt="Dogue Alemão">
               <div class="raca-caption"><div class="raca-nome">Dogue Alemão</div><div class="raca-risco">Cardiomiopatia dilatada</div></div>
             </div>
             <div class="raca-card-v2">
-              <img class="raca-photo" src="https://images.unsplash.com/photo-1568572933382-74d440642117?w=400&h=400&auto=format&fit=crop&q=80" alt="São Bernardo">
+              <img class="raca-photo" src="image/sao_bernardo.jpg" alt="São Bernardo">
               <div class="raca-caption"><div class="raca-nome">São Bernardo</div><div class="raca-risco">Cardiomiopatia dilatada</div></div>
             </div>
             <div class="raca-card-v2" style="visibility:hidden;"></div>
