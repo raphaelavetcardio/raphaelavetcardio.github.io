@@ -209,18 +209,11 @@
       background-size: cover;
       background-position: center 30%;
     }
-    /*#hero::before {
+    #hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        108deg,
-        rgba(253,240,247,.95) 0%,
-        rgba(253,240,247,.88) 35%,
-        rgba(247,240,253,.62) 58%,
-        rgba(247,240,253,.20) 78%,
-        rgba(247,240,253,.05) 100%
-      );
+      background: transparent;
       z-index: 0;
     }*/
     .hero-inner {
@@ -277,18 +270,18 @@
   #hero::before {
     background: linear-gradient(
       to bottom,
-      rgba(253,240,247,.55) 0%,
-      rgba(253,240,247,.75) 35%,
-      rgba(253,240,247,.93) 60%,
-      rgba(253,240,247,1.0) 100%
-    )!important;
+      rgba(253, 240, 247, 0.048) 0%,
+      rgba(253, 240, 247, 0.288) 35%,
+      rgba(253, 240, 247, 0.753) 60%,
+      rgba(253, 240, 247, 0.493) 100%
+    );
   }
   .hero-inner {
     max-width:100%;
     padding: 2.5rem 5% 3rem;
   }
   .hero-title { font-size:2.5rem; }
-  .hero-sub { font-size:14px; }
+  .hero-sub { font-size:14px;color: black; font-weight: 400; margin-top: 2.9rem;}
 }
 
     /* ============================================================ 02 QUEM SOU EU */
