@@ -202,6 +202,7 @@
       min-height: 600px;
       max-height: 920px;
       padding-top: var(--nav-h);
+
       position: relative;
       display: flex;
       align-items: center;
@@ -215,7 +216,7 @@
       inset: 0;
       background: transparent;
       z-index: 0;
-    }*/
+    }
     .hero-inner {
       position: relative; z-index: 1;
       max-width: 660px;
@@ -444,18 +445,30 @@
       transition:transform .48s cubic-bezier(.25,.46,.45,.94);
     }
     .carousel-slide {
-      min-width:100%;
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:1rem;
+      min-width: 100%;
+      display: flex;
+      justify-content: center;
     }
-    .raca-card-v2 {
-      background:var(--white);
-      border:.5px solid var(--lilac-light);
-      border-radius:16px; overflow:hidden;
-      transition:transform .2s,box-shadow .2s;
-    }
-    .raca-card-v2:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(180,127,212,.15); }
+
+  .raca-card-v2 {
+    background: var(--white);
+    border: .5px solid var(--lilac-light);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform .2s, box-shadow .2s;
+    width: 100%;
+    max-width: 340px;
+}
+
+  .raca-card-v2:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(180,127,212,.15);
+  }
+
+  @media (min-width: 769px) {
+    .raca-card-v2 { max-width: 440px; border-radius: 16px; }
+    .carousel-slide { min-width: 33.333%; justify-content: flex-start; }
+  }
     .raca-photo {
       width:100%; aspect-ratio:1/1;
       object-fit:cover; display:block;
@@ -828,109 +841,58 @@
 
     <div class="racas-tabs fade-in">
       <button class="raca-tab active" data-tipo="cao" onclick="switchTipo('cao',this)">🐶 Cães</button>
-      <button class="raca-tab"        data-tipo="gato" onclick="switchTipo('gato',this)">🐱 Gatos</button>
+      <button class="raca-tab" data-tipo="gato" onclick="switchTipo('gato',this)">🐱 Gatos</button>
     </div>
 
-    <!-- Carousel Cães -->
     <div class="carousel-outer fade-in d1" id="car-cao">
       <div class="carousel-wrap">
         <div class="carousel-track" id="track-cao">
-          <!-- Slide 1 -->
-          <div class="carousel-slide">
-            <div class="raca-card-v2">
-              <img class="raca-photo" src="image/Cavalier King Charles.jpg" alt="Cavalier King Charles Spaniel">
-              <div class="raca-caption"><div class="raca-nome">Cavalier King Charles</div><div class="raca-risco">Doença valvar mitral</div></div>
-            </div>
-            <div class="raca-card-v2">
-              <img class="raca-photo" src="image/poodle.jpg" alt="Poodle">
-              <div class="raca-caption"><div class="raca-nome">Poodle</div><div class="raca-risco">Doença valvar mitral</div></div>
-            </div>
-            <div class="raca-card-v2">
-              <img class="raca-photo" src="image/salsicha.jpg" alt="Dachshund">
-              <div class="raca-caption"><div class="raca-nome">Salsichinha</div><div class="raca-risco">Doença valvar mitral</div></div>
-            </div>
-          </div>
-          <!-- Slide 2 -->
-          <div class="carousel-slide">
-            <div class="raca-card-v2">
-              <img class="raca-photo" src="image/cocker_inglês_adulto.webp" alt="Cocker Spaniel">
-              <div class="raca-caption"><div class="raca-nome">Cocker Spaniel</div><div class="raca-risco">Cardiomiopatia dilatada</div></div>
-            </div>
-            <div class="raca-card-v2">
-              <img class="raca-photo" src="image/dobermann.webp" alt="Dobermann">
-              <div class="raca-caption"><div class="raca-nome">Dobermann</div><div class="raca-risco">Cardiomiopatia dilatada</div></div>
-            </div>
-            <div class="raca-card-v2">
-              <img class="raca-photo" src="image/Boxer-dog.webp" alt="Boxer">
-              <div class="raca-caption"><div class="raca-nome">Boxer</div><div class="raca-risco">Cardiomiopatia dilatada</div></div>
-            </div>
-          </div>
-          <!-- Slide 3 -->
-          <div class="carousel-slide">
-            <div class="raca-card-v2">
-              <img class="raca-photo" src="image/dogue alemao.webp" alt="Dogue Alemão">
-              <div class="raca-caption"><div class="raca-nome">Dogue Alemão</div><div class="raca-risco">Cardiomiopatia dilatada</div></div>
-            </div>
-            <div class="raca-card-v2">
-              <img class="raca-photo" src="image/sao_bernardo.jpg" alt="São Bernardo">
-              <div class="raca-caption"><div class="raca-nome">São Bernardo</div><div class="raca-risco">Cardiomiopatia dilatada</div></div>
-            </div>
-            <div class="raca-card-v2" style="visibility:hidden;"></div>
-          </div>
+          <div class="carousel-slide"><div class="raca-card-v2"><img class="raca-photo" src="image/Cavalier King Charles.jpg" alt="Cavalier King Charles"><div class="raca-caption"><div class="raca-nome">Cavalier King Charles</div><div class="raca-risco">Doença valvar mitral</div></div></div></div>
+          <div class="carousel-slide"><div class="raca-card-v2"><img class="raca-photo" src="image/poodle.jpg" alt="Poodle"><div class="raca-caption"><div class="raca-nome">Poodle</div><div class="raca-risco">Doença valvar mitral</div></div></div></div>
+          <div class="carousel-slide"><div class="raca-card-v2"><img class="raca-photo" src="image/salsicha.jpg" alt="Dachshund"><div class="raca-caption"><div class="raca-nome">Salsichinha</div><div class="raca-risco">Doença valvar mitral</div></div></div></div>
+          <div class="carousel-slide"><div class="raca-card-v2"><img class="raca-photo" src="image/cocker_inglês_adulto.webp" alt="Cocker Spaniel"><div class="raca-caption"><div class="raca-nome">Cocker Spaniel</div><div class="raca-risco">Cardiomiopatia dilatada</div></div></div></div>
+          <div class="carousel-slide"><div class="raca-card-v2"><img class="raca-photo" src="image/dobermann.webp" alt="Dobermann"><div class="raca-caption"><div class="raca-nome">Dobermann</div><div class="raca-risco">Cardiomiopatia dilatada</div></div></div></div>
+          <div class="carousel-slide"><div class="raca-card-v2"><img class="raca-photo" src="image/Boxer-dog.webp" alt="Boxer"><div class="raca-caption"><div class="raca-nome">Boxer</div><div class="raca-risco">Cardiomiopatia dilatada</div></div></div></div>
+          <div class="carousel-slide"><div class="raca-card-v2"><img class="raca-photo" src="image/dogue alemao.webp" alt="Dogue Alemão"><div class="raca-caption"><div class="raca-nome">Dogue Alemão</div><div class="raca-risco">Cardiomiopatia dilatada</div></div></div></div>
+          <div class="carousel-slide"><div class="raca-card-v2"><img class="raca-photo" src="image/sao_bernardo.jpg" alt="São Bernardo"><div class="raca-caption"><div class="raca-nome">São Bernardo</div><div class="raca-risco">Cardiomiopatia dilatada</div></div></div></div>
         </div>
       </div>
       <div class="carousel-nav">
         <button class="car-btn" onclick="carPrev('cao')">&#8592;</button>
         <div class="car-dots" id="dots-cao">
           <span class="car-dot active" onclick="carGo('cao',0)"></span>
-          <span class="car-dot"        onclick="carGo('cao',1)"></span>
-          <span class="car-dot"        onclick="carGo('cao',2)"></span>
+          <span class="car-dot" onclick="carGo('cao',1)"></span>
+          <span class="car-dot" onclick="carGo('cao',2)"></span>
+          <span class="car-dot" onclick="carGo('cao',3)"></span>
+          <span class="car-dot" onclick="carGo('cao',4)"></span>
+          <span class="car-dot" onclick="carGo('cao',5)"></span>
+          <span class="car-dot" onclick="carGo('cao',6)"></span>
+          <span class="car-dot" onclick="carGo('cao',7)"></span>
         </div>
         <button class="car-btn" onclick="carNext('cao')">&#8594;</button>
       </div>
     </div>
 
-    <!-- Carousel Gatos (oculto por padrão) -->
     <div class="carousel-outer fade-in d1" id="car-gato" style="display:none;">
       <div class="carousel-wrap">
         <div class="carousel-track" id="track-gato">
-          <!-- Slide 1 -->
-          <div class="carousel-slide">
-            <div class="raca-card-v2">
-              <img class="raca-photo" src="image/maine-coon2.webp" alt="Maine Coon">
-              <div class="raca-caption"><div class="raca-nome">Maine Coon</div><div class="raca-risco">Cardiomiopatia hipertrófica</div></div>
-            </div>
-            <div class="raca-card-v2">
-              <img class="raca-photo" src="image/Ragdoll.jpg" alt="Ragdoll">
-              <div class="raca-caption"><div class="raca-nome">Ragdoll</div><div class="raca-risco">Cardiomiopatia hipertrófica</div></div>
-            </div>
-            <div class="raca-card-v2">
-              <img class="raca-photo" src="image/persa.png" alt="Persa">
-              <div class="raca-caption"><div class="raca-nome">Persa</div><div class="raca-risco">Cardiomiopatia hipertrófica</div></div>
-            </div>
-          </div>
-          <!-- Slide 2 -->
-          <div class="carousel-slide">
-            <div class="raca-card-v2">
-              <img class="raca-photo" src="image/British-SH_About.jpg" alt="British Shorthair">
-              <div class="raca-caption"><div class="raca-nome">British Shorthair</div><div class="raca-risco">Cardiomiopatia hipertrófica</div></div>
-            </div>
-            <div class="raca-card-v2">
-              <img class="raca-photo" src="image/scottish_fold.webp" alt="Scottish Fold">
-              <div class="raca-caption"><div class="raca-nome">Scottish Fold</div><div class="raca-risco">Cardiomiopatia hipertrófica</div></div>
-            </div>
-            <div class="raca-card-v2">
-              <img class="raca-photo" src="image/sphynx_adulto.webp" alt="Sphynx">
-              <div class="raca-caption"><div class="raca-nome">Sphynx (gato pelado)</div><div class="raca-risco">Cardiomiopatia hipertrófica</div></div>
-            </div>
-          </div>
+          <div class="carousel-slide"><div class="raca-card-v2"><img class="raca-photo" src="image/maine-coon2.webp" alt="Maine Coon"><div class="raca-caption"><div class="raca-nome">Maine Coon</div><div class="raca-risco">Cardiomiopatia hipertrófica</div></div></div></div>
+          <div class="carousel-slide"><div class="raca-card-v2"><img class="raca-photo" src="image/Ragdoll.jpg" alt="Ragdoll"><div class="raca-caption"><div class="raca-nome">Ragdoll</div><div class="raca-risco">Cardiomiopatia hipertrófica</div></div></div></div>
+          <div class="carousel-slide"><div class="raca-card-v2"><img class="raca-photo" src="image/persa.png" alt="Persa"><div class="raca-caption"><div class="raca-nome">Persa</div><div class="raca-risco">Cardiomiopatia hipertrófica</div></div></div></div>
+          <div class="carousel-slide"><div class="raca-card-v2"><img class="raca-photo" src="image/British-SH_About.jpg" alt="British Shorthair"><div class="raca-caption"><div class="raca-nome">British Shorthair</div><div class="raca-risco">Cardiomiopatia hipertrófica</div></div></div></div>
+          <div class="carousel-slide"><div class="raca-card-v2"><img class="raca-photo" src="image/scottish_fold.webp" alt="Scottish Fold"><div class="raca-caption"><div class="raca-nome">Scottish Fold</div><div class="raca-risco">Cardiomiopatia hipertrófica</div></div></div></div>
+          <div class="carousel-slide"><div class="raca-card-v2"><img class="raca-photo" src="image/sphynx_adulto.webp" alt="Sphynx"><div class="raca-caption"><div class="raca-nome">Sphynx</div><div class="raca-risco">Cardiomiopatia hipertrófica</div></div></div></div>
         </div>
       </div>
       <div class="carousel-nav">
         <button class="car-btn" onclick="carPrev('gato')">&#8592;</button>
         <div class="car-dots" id="dots-gato">
           <span class="car-dot active" onclick="carGo('gato',0)"></span>
-          <span class="car-dot"        onclick="carGo('gato',1)"></span>
+          <span class="car-dot" onclick="carGo('gato',1)"></span>
+          <span class="car-dot" onclick="carGo('gato',2)"></span>
+          <span class="car-dot" onclick="carGo('gato',3)"></span>
+          <span class="car-dot" onclick="carGo('gato',4)"></span>
+          <span class="car-dot" onclick="carGo('gato',5)"></span>
         </div>
         <button class="car-btn" onclick="carNext('gato')">&#8594;</button>
       </div>
@@ -1115,13 +1077,15 @@
 
   /* Carousel state */
   const carState = { cao: 0, gato: 0 };
-  const carTotals = { cao: 3, gato: 2 };
+  const carTotals = { cao: 8, gato: 6 };
 
   function carGo(tipo, idx) {
     carState[tipo] = idx;
-    document.getElementById('track-' + tipo).style.transform = 'translateX(-' + idx * 100 + '%)';
+    const isMobile = window.innerWidth <= 768;
+    const slideW = isMobile ? 100 : 33.333;
+    document.getElementById('track-' + tipo).style.transform = 'translateX(-' + (idx * slideW) + '%)';
     document.querySelectorAll('#dots-' + tipo + ' .car-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
-  }
+}
   function carNext(tipo) { carGo(tipo, (carState[tipo] + 1) % carTotals[tipo]); }
   function carPrev(tipo) { carGo(tipo, (carState[tipo] - 1 + carTotals[tipo]) % carTotals[tipo]); }
 
