@@ -561,16 +561,63 @@
     /* ============================================================ 09 CTA */
     #cta {
       background:linear-gradient(135deg,var(--pink) 0%,var(--lilac) 100%);
-      padding:5.5rem 0; text-align:center; overflow:hidden;
+      padding:5.5rem 0; overflow:hidden;
     }
-    .cta-inner { position:relative; z-index:1; }
+    .cta-inner {
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:minmax(230px, 320px) minmax(0, 1fr);
+      gap:2.5rem;
+      align-items:center;
+    }
+    .cta-visual {
+      position:relative;
+      min-height:270px;
+    }
+    .cta-cat-wrap {
+      --cta-cat-offset-y: 0px;
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%, calc(-50% + var(--cta-cat-offset-y)));
+      width:min(100%, 250px);
+      aspect-ratio:1 / 1;
+      will-change:transform;
+    }
+    .cta-cat-svg {
+      display:block;
+      width:100%;
+      height:100%;
+      animation:catFloat 4s ease-in-out infinite;
+      transform-origin:50% 65%;
+    }
+    .cta-tail {
+      transform-origin:60% 70%;
+      animation:tailWiggle 2.8s ease-in-out infinite;
+    }
+    @keyframes catFloat {
+      0%,100% { transform:translateY(0px) scale(1); }
+      50% { transform:translateY(-6px) scale(1.01); }
+    }
+    @keyframes tailWiggle {
+      0%,100% { transform:rotate(0deg); }
+      50% { transform:rotate(-7deg); }
+    }
+    .cta-copy {
+      text-align:left;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:flex-start;
+    }
     .cta-title {
       font-family:'Bricolage Grotesque',sans-serif;
       font-size:clamp(2rem,4vw,3rem);
       font-weight:700; color:#fff; line-height:1.18; margin-bottom:.9rem;
     }
     .cta-sub { font-size:16px; font-weight:300; color:rgba(255,255,255,.82); margin-bottom:2.2rem; }
-    .cta-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+    .cta-btns { display:flex; gap:14px; justify-content:flex-start; flex-wrap:wrap; }
 
     /* ============================================================ 10 FOOTER */
     footer { background:var(--footer-bg); padding:3rem 0 1.75rem; }
@@ -619,6 +666,17 @@
       .footer-inner { flex-direction:column; gap:1.4rem; }
       .footer-bottom { flex-direction:column; text-align:center; gap:.4rem; }
       #cta { padding:4rem 0; }
+      .cta-inner { grid-template-columns:1fr; gap:2rem; }
+      .cta-visual { min-height:220px; }
+      .cta-cat-wrap {
+        position:relative;
+        left:auto;
+        top:auto;
+        transform:none;
+        margin:0 auto;
+      }
+      .cta-copy { text-align:center; align-items:center; }
+      .cta-btns { justify-content:center; }
     }
   </style>
 </head>
@@ -1012,13 +1070,32 @@
     coração heart amor love pet vet saúde health cuidado care patinhas patas diagnóstico precoce qualidade de vida
   </div>
   <div class="container cta-inner">
-    <h2 class="cta-title fade-in">O diagnóstico precoce salva vidas —<br>e dá qualidade a elas</h2>
-    <p class="cta-sub fade-in d1">Agende uma avaliação cardiológica e cuide do coração do seu pet com quem realmente entende.</p>
-    <div class="cta-btns fade-in d2">
-      <a href="https://api.whatsapp.com/send/?phone=5516996055132&text=Ol%C3%A1%20Dra%20tudo%20bem%20?%20vim%20pelo%20seu%20site%20e%20preciso%20de%20uma%20consulta&type=phone_number&app_absent=0" target="_blank" rel="noopener" class="btn-w">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width:16px;height:16px;fill:var(--pink);flex-shrink:0;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-        Falar no WhatsApp
-      </a>
+    <div class="cta-visual fade-in" aria-hidden="true">
+      <div class="cta-cat-wrap" id="ctaCatWrap">
+        <svg class="cta-cat-svg" viewBox="0 0 300 300" role="img" aria-label="Ilustração de gato rosa">
+          <ellipse cx="150" cy="245" rx="78" ry="15" fill="#7680ad" opacity=".85"/>
+          <g class="cta-tail">
+            <path d="M206 183c31-13 65 8 58 35-5 19-27 26-41 13-8-8 3-20 10-13 4 4 12 2 14-5 4-15-17-29-34-21z" fill="#f062bc"/>
+            <path d="M227 214c3-4 9-5 13-1 2 3 2 7 0 9-4 5-12 4-14-1-1-2 0-5 1-7z" fill="#f8addd"/>
+          </g>
+          <path d="M95 120l16-18c4-5 13-2 13 5v21z" fill="#f062bc"/>
+          <path d="M168 121l13-19c4-6 13-4 14 3l2 20z" fill="#f062bc"/>
+          <path d="M102 230v-96c0-30 22-52 50-52s50 22 50 52v96z" fill="#f062bc"/>
+          <ellipse cx="139" cy="182" rx="20" ry="52" fill="#ffe7f5"/>
+          <ellipse cx="177" cy="106" rx="3" ry="2.3" fill="#3a1a4a"/>
+          <path d="M149 230h16l-5 14h-11z" fill="#ffe7f5"/>
+        </svg>
+      </div>
+    </div>
+    <div class="cta-copy">
+      <h2 class="cta-title fade-in">O diagnóstico precoce salva vidas —<br>e dá qualidade a elas</h2>
+      <p class="cta-sub fade-in d1">Agende uma avaliação cardiológica e cuide do coração do seu pet com quem realmente entende.</p>
+      <div class="cta-btns fade-in d2">
+        <a href="https://api.whatsapp.com/send/?phone=5516996055132&text=Ol%C3%A1%20Dra%20tudo%20bem%20?%20vim%20pelo%20seu%20site%20e%20preciso%20de%20uma%20consulta&type=phone_number&app_absent=0" target="_blank" rel="noopener" class="btn-w">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width:16px;height:16px;fill:var(--pink);flex-shrink:0;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+          Falar no WhatsApp
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -1106,6 +1183,26 @@
     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
   }
+
+  /* CTA: centraliza o gato na mesma altura do botão do WhatsApp (desktop) */
+  function alignCtaCat() {
+    if (window.innerWidth <= 768) return;
+    const cta = document.getElementById('cta');
+    if (!cta) return;
+
+    const visual = cta.querySelector('.cta-visual');
+    const btns = cta.querySelector('.cta-btns');
+    const catWrap = cta.querySelector('.cta-cat-wrap');
+    if (!visual || !btns || !catWrap) return;
+
+    const visualRect = visual.getBoundingClientRect();
+    const btnRect = btns.getBoundingClientRect();
+    const targetCenterY = btnRect.top + (btnRect.height / 2);
+    catWrap.style.top = `${targetCenterY - visualRect.top}px`;
+  }
+
+  window.addEventListener('load', alignCtaCat);
+  window.addEventListener('resize', alignCtaCat);
 </script>
 </body>
 </html>
